@@ -1,0 +1,43 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.wrapper {
+  @include container;
+  margin-top: 100px;
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  line-height: 40px;
+  font-weight: 700;
+  color: $blue;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 39px;
+  margin-top: 40px;
+}
+
+.brand {
+  display: grid;
+  place-items: center;
+  width: 215px;
+  height: 215px;
+  border-radius: 50%;
+  background: $white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  @include mobile {
+    width: 140px;
+    height: 140px;
+  }
+}

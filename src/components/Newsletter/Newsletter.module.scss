@@ -1,0 +1,92 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.newsletter {
+  margin-top: 90px;
+  background: $navy;
+  color: $white;
+}
+
+.inner {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  min-height: 162px;
+  padding-block: 44px;
+
+  @include tablet {
+    flex-direction: column;
+  }
+}
+
+.text {
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 300;
+}
+
+.title {
+  margin-bottom: 8px;
+  font-family: $font-title;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 233px 233px 157px;
+  gap: 8px;
+  align-items: center;
+
+  input[type='text'],
+  input[type='email'] {
+    height: 42px;
+    padding: 0 24px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: $white;
+    font-size: 14px;
+    color: $text;
+  }
+
+  button {
+    @include button-reset;
+    height: 42px;
+    border-radius: 6px;
+    background: $yellow;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.95);
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+.terms {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.success {
+  grid-column: 1 / -1;
+  font-size: 14px;
+  color: $yellow;
+}

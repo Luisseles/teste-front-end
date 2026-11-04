@@ -1,0 +1,88 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  position: relative;
+  height: 390px;
+  overflow: hidden;
+  background: #0b0b0b;
+  color: $white;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  @include mobile {
+    height: 320px;
+  }
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.content {
+  @include container;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.title {
+  max-width: 600px;
+  font-size: 48px;
+  line-height: 52px;
+  font-weight: 600;
+
+  @include mobile {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+.subtitle {
+  margin-top: 18px;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 300;
+
+  strong {
+    font-weight: 600;
+    color: $yellow;
+  }
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+.cta {
+  margin-top: 32px;
+  margin-left: 7px;
+  display: inline-grid;
+  place-items: center;
+  width: 206px;
+  height: 50px;
+  border-radius: 4px;
+  background: $yellow;
+  color: $navy;
+  font-size: 18px;
+  font-weight: 600;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+}

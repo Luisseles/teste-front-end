@@ -1,0 +1,150 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.showcase {
+  @include container;
+  margin-top: 100px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding-inline: 70px;
+  font-size: 28px;
+  line-height: 40px;
+  font-weight: 700;
+  color: $blue;
+  white-space: nowrap;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $gray-300;
+  }
+
+  @include tablet {
+    padding-inline: 0;
+    gap: 16px;
+    font-size: 22px;
+  }
+}
+
+.viewAll {
+  display: block;
+  margin-top: 6px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 600;
+  color: $text;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 12px;
+  border: 1px solid $gray-400;
+
+  @include mobile {
+    display: flex;
+    overflow-x: auto;
+  }
+}
+
+.tab {
+  @include button-reset;
+  height: 38px;
+  border-left: 1px solid $gray-400;
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: $text;
+  white-space: nowrap;
+
+  @include mobile {
+    padding-inline: 18px;
+    font-size: 14px;
+  }
+
+  &:first-child {
+    border-left: 0;
+  }
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.tabActive {
+  font-weight: 600;
+  color: $blue;
+}
+
+// ---------- Carrossel ----------
+.carousel {
+  position: relative;
+  margin-top: 8px;
+}
+
+.viewport {
+  margin-inline: -4px;
+  padding: 16px 0 24px;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.slide {
+  flex: 0 0 25%;
+  min-width: 0;
+  padding-inline: 9px;
+}
+
+.arrow {
+  @include button-reset;
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  border-radius: 50%;
+  background: $white;
+  color: $text;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  &:not(:disabled):hover {
+    color: $blue;
+  }
+}
+
+.arrowPrev {
+  left: -42px;
+}
+
+.arrowNext {
+  right: -42px;
+}
+
+@media (max-width: 1380px) {
+  .arrowPrev {
+    left: -6px;
+  }
+
+  .arrowNext {
+    right: -6px;
+  }
+}
